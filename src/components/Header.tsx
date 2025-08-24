@@ -1,5 +1,6 @@
-                            import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import "./Header.css";
 
 function Header() {
   const location = useLocation();
@@ -17,52 +18,46 @@ function Header() {
   };
 
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex justify-between items-center h-20">
+    <header className="site-header">
+      <div className="site-header__container">
+        <div className="site-header__content">
           {/* Logo */}
-          <Link to="/" className="flex items-center" onClick={handleNavClick}>
-            <span className="text-blue-600 font-semibold" style={{ fontSize: '51px' }}>FH.</span>
+          <Link to="/" className="site-header__logo" onClick={handleNavClick}>
+            <span className="site-header__logo-text">FH.</span>
           </Link>
 
-          <div className="flex items-center space-x-8">
+          <div className="site-header__menu">
             {/* Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="site-header__nav">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={handleNavClick}
-                  className="font-medium transition-colors duration-200 relative pb-1 text-gray-600 hover:text-gray-900"
-                  style={{ fontSize: '15px' }}
+                  className={`site-header__nav-link${
+                    location.pathname === item.path ? " site-header__nav-link--active" : ""
+                  }`}
                 >
                   {item.label}
-                  {location.pathname === item.path && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
-                  )}
                 </Link>
               ))}
             </nav>
 
             {/* CTA Button */}
-            <div className="hidden md:flex">
-              <Link
-                to="/contact"
-                className="bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
-                style={{ borderRadius: '3px' }}
-              >
+            <div className="site-header__cta">
+              <Link to="/contact" className="site-header__cta-link">
                 Get Started
               </Link>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button 
-              className="text-gray-600 hover:text-gray-900"
+          <div className="site-header__mobile-toggle">
+            <button
+              className="site-header__mobile-button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="site-header__mobile-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
@@ -71,30 +66,29 @@ function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-gray-50">
-            <nav className="px-4 py-4 space-y-3">
+          <div className="site-header__mobile-menu">
+            <nav className="site-header__mobile-nav">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={handleNavClick}
-                  className={`block text-sm font-medium py-2 hover:text-blue-600 active:text-blue-600 ${
-                    location.pathname === item.path
-                      ? "text-blue-600"
-                      : "text-gray-600"
+                  className={`site-header__mobile-nav-link${
+                    location.pathname === item.path ? " site-header__mobile-nav-link--active" : ""
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                className="block bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors duration-200 mt-4"
-                style={{ borderRadius: '3px' }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get Started
-              </Link>
+              <div className="site-header__mobile-cta">
+                <Link
+                  to="/contact"
+                  className="site-header__mobile-cta-link"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Started
+                </Link>
+              </div>
             </nav>
           </div>
         )}
