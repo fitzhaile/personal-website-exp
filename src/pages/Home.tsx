@@ -2,29 +2,22 @@
 
 function Home() {
   return (
-    <div>
+    <div className="page page--home">
       {/* Hero Section */}
-      <section className="bg-white pt-20 pb-20 md:pt-32 md:pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
-              Leverage your data for <span className="text-blue-600 font-medium">smarter decision making</span>
+      <section className="hero">
+        <div className="section">
+          <div className="hero__content">
+            <h1 className="hero__title">
+              Leverage your data for <span className="hero__highlight">smarter decision making</span>
             </h1>
-            <p className="text-xl text-gray-500 mb-8 max-w-3xl">
+            <p className="hero__text">
               I help organizations transform data into strategic insights, optimize performance, and inform critical business decisions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-medium transition-colors text-center"
-                style={{ borderRadius: '3px' }}
-              >
+            <div className="hero__actions">
+              <Link to="/contact" className="button">
                 Start the conversation
               </Link>
-              <button 
-                className="border border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 font-medium transition-colors"
-                style={{ borderRadius: '3px' }}
-              >
+              <button className="button button--secondary">
                 View my work
               </button>
             </div>

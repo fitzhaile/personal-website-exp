@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Layout */
+.page {
+  @apply min-h-screen bg-white;
+}
+
+.section {
+  @apply max-w-6xl mx-auto px-6;
+}
+
+/* Hero block */
+.hero {
+  @apply bg-white pt-20 pb-20 md:pt-32 md:pb-20;
+}
+
+.hero__content {
+  @apply max-w-4xl;
+}
+
+.hero__title {
+  @apply text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight;
+}
+
+.hero__highlight {
+  @apply text-blue-600 font-medium;
+}
+
+.hero__text {
+  @apply text-xl text-gray-500 mb-8 max-w-3xl;
+}
+
+.hero__actions {
+  @apply flex flex-col sm:flex-row gap-4;
+}
+
+/* Buttons */
+.button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-medium transition-colors text-center;
+  border-radius: 3px;
+}
+
+.button--secondary {
+  @apply border border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 font-medium transition-colors;
+  border-radius: 3px;
+}
+
+/* Not Found page */
+.not-found {
+  @apply flex flex-col items-center justify-center h-screen space-y-4;
+}
+
+.not-found__title {
+  @apply text-4xl font-bold;
+}
+
+.not-found__message {
+  @apply text-xl text-gray-600;
+}
+
+.not-found__button {
+  @apply mt-8;
+}

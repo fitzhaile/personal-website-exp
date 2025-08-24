@@ -2,29 +2,20 @@ import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="page page--about">
       {/* Hero Section */}
-      <section className="bg-white pt-20 pb-20 md:pt-32 md:pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
-              Hi, I'm Fitz
-            </h1>
-            <p className="text-xl text-gray-500 mb-8 max-w-3xl">
+      <section className="hero">
+        <div className="section">
+          <div className="hero__content">
+            <h1 className="hero__title">Hi, I'm Fitz</h1>
+            <p className="hero__text">
               I'm passionate about helping organizations see their work more clearly through data, bringing 15+ years of experience to complex data challenges.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-medium transition-colors text-center"
-                style={{ borderRadius: '3px' }}
-              >
+            <div className="hero__actions">
+              <Link to="/contact" className="button">
                 Start a conversation
               </Link>
-              <button 
-                className="border border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 font-medium transition-colors"
-                style={{ borderRadius: '3px' }}
-              >
+              <button className="button button--secondary">
                 View my experience
               </button>
             </div>
