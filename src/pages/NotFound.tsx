@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 /**
@@ -6,6 +6,7 @@ import { useEffect } from "react";
  */
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.error(
@@ -19,7 +20,7 @@ const NotFound = () => {
       <h1 className="text-4xl font-bold">404</h1>
       <p className="text-xl text-gray-600">Page not found</p>
       <button
-        onClick={() => (window.location.href = "/")}
+        onClick={() => navigate("/")}
         className="px-4 py-2 mt-8 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
       >
         Return home

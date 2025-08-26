@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import CaseStudyUnitedWay from './pages/CaseStudyUnitedWay';
 import DataDashboardCaseStudy from './pages/DataDashboardCaseStudy';
 import EconomicResearchCaseStudy from './pages/EconomicResearchCaseStudy';
+import NotFound from './pages/NotFound';
 
 function App() {
   const basename = import.meta.env.PROD ? '/personal-website-exp' : '/';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/work/united-way-marketing-analytics" element={<CaseStudyUnitedWay />} />
           <Route path="/work/data-dashboard-analytics" element={<DataDashboardCaseStudy />} />
           <Route path="/work/economic-research-analysis" element={<EconomicResearchCaseStudy />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
