@@ -15,12 +15,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="not-found">
-      <h1 className="not-found__title">404</h1>
-      <p className="not-found__message">Page not found</p>
+    <div className="flex flex-col items-center justify-center h-screen space-y-4">
+      <h1 className="text-4xl font-bold">404</h1>
+      <p className="text-xl text-gray-600">Page not found</p>
       <button
         onClick={() => (window.location.href = "/")}
-        className="button not-found__button"
+        className="px-4 py-2 mt-8 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
       >
         Return home
       </button>
