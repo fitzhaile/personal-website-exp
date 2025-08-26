@@ -2,11 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
-export default defineConfig({
-  // Use a relative base path so that assets load correctly
-  // when the site is served from a subdirectory or opened from
-  // the built `dist` folder without a dev server.
-  base: "./",
+export default defineConfig(({ mode }) => ({
+  // Use an absolute base in production so assets resolve correctly on
+  // GitHub Pages, but keep a relative base for local development.
+  base: mode === "production" ? "/personal-website-exp/" : "./",
   clearScreen: false,
   plugins: [
     react(),
@@ -47,4 +46,4 @@ export default defineConfig({
       interval: 500,
     },
   },
-});
+}));
