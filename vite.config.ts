@@ -3,7 +3,10 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  // Use a relative base path so that assets load correctly
+  // when the site is served from a subdirectory or opened from
+  // the built `dist` folder without a dev server.
+  base: "./",
   clearScreen: false,
   plugins: [
     react(),
