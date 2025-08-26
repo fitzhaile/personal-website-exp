@@ -10,8 +10,9 @@ import DataDashboardCaseStudy from './pages/DataDashboardCaseStudy';
 import EconomicResearchCaseStudy from './pages/EconomicResearchCaseStudy';
 
 function App() {
+  const basename = import.meta.env.PROD ? '/personal-website-exp' : '/';
   return (
-    <Router>
+    <Router basename={basename}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
