@@ -1,7 +1,7 @@
 name: Deploy static site to GitHub Pages
 on:
   push:
-    branches: [ main ]
+    branches: [ main, work ]
 permissions:
   contents: read
   pages: write
